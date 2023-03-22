@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코딩네컷</title>
+    <style>
+      @font-face {
+        font-family: "HGGGothicssi_99g";
+        src: url(HGGGothicssi_99g.ttf);
+          format("ttf");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        font-family: "HGGGothicssi_99g";
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-image: url("바다사진.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .container {
+        width: 390px;
+        background:linear-gradient(-135deg, #F2F5A9, #3f9fff)fixed;
+        height: 100%;
+      }
+
+      .photos {
+        margin-top: 30px;
+      }
+
+      .photo-frame {
+        cursor: pointer;
+        background-color: white;
+        margin: 15px 20px;
+        height: 200px;
+        background-size: cover;
+        position:relative
+
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .f-title {
+        font-size: 45px;
+        font-weight: 0;
+        color: white;
+      }
+      .f-date {
+        font-size: 30px;
+        font-weight: 0;
+        color: white;
+      }
+
+      .photo-description {
+        color: white;
+        background-color: black;
+        width: fit-content;
+        padding: 2px;
+        border-radius: 0px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0;
+        transform: translate(-50%);
+        left: 50%;
+        opacity: 0;
+      }
+
+      .video {
+        width: 100%;
+        height: 100%;
+      }
+
+      .showText {
+        opacity: 0;
+      }
+      .hideText {
+        opacity: 1;
+        transition: opacity 0.5s linear;
+      }
+
+    </style>
+    <script>
+      // 텍스트가 보여지는 기능
+// 1. 몇 번째 사진에 마우스가 올라갔는지 확인(if문)
+// 2. 해당 사진을 찾아 hideText class를 지워주고, showText는 삽입해줌
+function showText(number) {
+  if (number === 1) {
+    document.querySelector("#desc1").classList.remove("hideText");
+    document.querySelector("#desc1").classList.add("showText");
+  } else if (number === 2) {
+    document.querySelector("#desc2").classList.remove("hideText");
+    document.querySelector("#desc2").classList.add("showText");
+  } else if (number === 3) {
+    document.querySelector("#desc3").classList.remove("hideText");
+    document.querySelector("#desc3").classList.add("showText");
+  } else {
+    document.querySelector("#desc4").classList.remove("hideText");
+    document.querySelector("#desc4").classList.add("showText");
+  }
+}
+
+// 텍스트가 감춰지는 기능
+// 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+// 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+function hideText(number) {
+  if (number === 1) {
+    document.querySelector("#desc1").classList.remove("showText");
+    document.querySelector("#desc1").classList.add("hideText");
+  } else if (number === 2) {
+    document.querySelector("#desc2").classList.remove("showText");
+    document.querySelector("#desc2").classList.add("hideText");
+  } else if (number === 3) {
+    document.querySelector("#desc3").classList.remove("showText");
+    document.querySelector("#desc3").classList.add("hideText");
+  } else {
+    document.querySelector("#desc4").classList.remove("showText");
+    document.querySelector("#desc4").classList.add("hideText");
+  }
+}
+
+// 클릭 기능
+// 1. 선택된 사진의 숫자를 가진 텍스트를 alert 형태로 출력해줌
+function alertText(number) {
+	alert(`아! 놀러 가고 싶다🥹`);
+}  
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="photos">
+        <div id="image1" class="photo-frame"
+        onmouseover="hideText(1)"
+        onmouseover="showText(1)"
+        onclikc="alertText(1)"
+        >
+        <span id="desc1" class="photo-description">
+            해방촌📚 편
+        </span>
+          <iframe
+            src="https://www.youtube.com/embed/mxmrCadHH7s"
+             frameborder="0"
+             class="video"
+            ></iframe>
+        </div>
+        <div id="image2" class="photo-frame"             
+        onmouseover="hideText(2)"
+        onmouseover="showText(2)"
+        onclick="alertText(2)"
+        >
+        <span id="desc2" class="photo-description">
+            인천 차이나타운🥟 편
+        </span>
+            <iframe
+            src="https://www.youtube.com/embed/LvHMOaSjIlU"
+             frameborder="0"
+             class="video"
+            ></iframe>
+        </div>
+        <div id="image3" class="photo-frame"
+        onmouseover="hideText(3)"
+        onmouseover="showText(3)"
+        onclick="alertText(3)">
+        <span id="desc3" class="photo-description">
+            을지로🎧 편
+        </span>
+            <iframe
+            src="https://www.youtube.com/embed/RAWdasI_InA"
+             frameborder="0"
+             class="video"
+            ></iframe>
+        </div>
+        <div id="image4" class="photo-frame"
+        onmouseover="hideText(4)"
+        onmouseover="showText(4)"
+        onclick="alertText(4)">
+        <span id="desc4" class="photo-description">
+            부산 광안리🌊 편
+        </span>       
+            <iframe
+            src="https://www.youtube.com/embed/KCuuIFn5lCQ"
+             frameborder="0"
+             class="video"
+            ></iframe>
+        </div>
+      </div>
+      <div class="footer">
+        <p class="f-title">브이로그 네컷</p>
+        <p class="f-date">2️⃣0️⃣2️⃣2️⃣</p>
+      </div>
+    </div>
+  </body>
+</html>
